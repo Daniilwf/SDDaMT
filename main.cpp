@@ -11,8 +11,8 @@ int main(int argc, char* argv[]) {
 		cerr << "YOU ENTER MORE THAN 2 ARGS" << endl;
 		return 1;
 	}
-	if(stoi(argv[1]) < 0) {
-		cerr << "PLEASE ENTER ARG MORE THAN -1" << endl;
+	if(stoi(argv[1]) < 0 || stoi(argv[1]) > 20) {
+		cerr << "PLEASE ENTER ARG MORE THAN -1 AND LESS THAN 20" << endl;
 		return 1;
 	}
 	cout << factorial(stoi(argv[1])) << endl;
