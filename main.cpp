@@ -8,7 +8,7 @@ long long factorial(int);
 
 int main(int argc, char* argv[]) {
 	if(argc != 2) {
-		cerr << "YOU ENTER MORE THAN 2 ARGS" << endl;
+		cerr << "YOU ENTER MORE THAN 1 ARG" << endl;
 		return 1;
 	}
 	if(stoi(argv[1]) < 0 || stoi(argv[1]) > 20) {

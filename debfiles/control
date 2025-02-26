@@ -1,6 +1,0 @@
-Package: factorial
-Version: 1.0
-Architecture: all
-Depends: g++, make
-Maintainer: Kseniya266
-Description: the factorial of numbers 
