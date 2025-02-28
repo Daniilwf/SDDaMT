@@ -1,0 +1,28 @@
+stages:
+  - build
+  - test
+  - package
+
+build_job:
+  stage: build
+  script:
+    - echo "Starting the build"
+    - ./scripts/build.sh
+  artifacts:
+    paths:
+      - factorial
+
+test_job:
+  stage: test
+  script:
+    - echo "Running tests"
+    - ./scripts/test.sh
+
+package_job:
+  stage: package
+  script:
+    - echo "Building a deb package"
+    - ./script/package.sh
+  artifacts:
+    paths:
+      - labs.deb
