@@ -1,3 +1,3 @@
 echo "Current directory: $(pwd)"
-cd "$(dirname "$0")/.."
+cd ..
 dpkg-deb --build SDDaMT
