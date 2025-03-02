@@ -1,0 +1,27 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Update Ubuntu
+        uses: sudo apt update && sudo apt upgrade -y
+
+      - name: Install apps
+        uses: sudo apt install build-essential git dpkg-dev devscripts lintian
+
+      - name: Starting build
+        uses: ./scripts/build.sh
+
+      - name: Running tests
+        uses: ./scripts/test.sh
+
+      - name: Building a deb package
+        uses: ./scripts/package.sh

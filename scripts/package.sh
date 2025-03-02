@@ -1,1 +1,1 @@
-dpkg-deb --build labs
+dpkg-deb --build SDDaMT
