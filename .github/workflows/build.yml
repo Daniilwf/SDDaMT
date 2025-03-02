@@ -12,16 +12,16 @@ jobs:
 
     steps:
       - name: Update Ubuntu
-        uses: sudo apt update && sudo apt upgrade -y
+        run: sudo apt update && sudo apt upgrade -y
 
       - name: Install apps
-        uses: sudo apt install build-essential git dpkg-dev devscripts lintian
+        run: sudo apt install build-essential git dpkg-dev devscripts lintian
 
       - name: Starting build
-        uses: ./scripts/build.sh
+        run: ./scripts/build.sh
 
       - name: Running tests
-        uses: ./scripts/test.sh
+        run: ./scripts/test.sh
 
       - name: Building a deb package
-        uses: ./scripts/package.sh
+        run: ./scripts/package.sh
