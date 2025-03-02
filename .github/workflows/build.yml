@@ -11,17 +11,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Update Ubuntu
-        run: sudo apt update && sudo apt upgrade -y
+      # Check out the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Install apps
-        run: sudo apt install build-essential git dpkg-dev devscripts lintian
+      # Update and install dependencies
+      - name: Update and install apps
+        run: |
+          apt-get update
+          apt-get upgrade -y
+          apt-get install -y build-essential git dpkg-dev devscripts lintian
 
+      # Run build script
       - name: Starting build
         run: ./scripts/build.sh
 
+      # Run tests
       - name: Running tests
         run: ./scripts/test.sh
 
+      # Build a deb package
       - name: Building a deb package
         run: ./scripts/package.sh
