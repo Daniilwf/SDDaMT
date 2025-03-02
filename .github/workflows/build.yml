@@ -33,3 +33,5 @@ jobs:
       # Build a deb package
       - name: Building a deb package
         run: ./scripts/package.sh
+
+
