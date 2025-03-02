@@ -8,11 +8,11 @@ long long factorial(int);
 
 int main(int argc, char* argv[]) {
 	if(argc != 2) {
-		cerr << "YOU ENTER MORE THAN 1 ARG" << endl;
+		cout << "YOU ENTER MORE THAN 1 ARG" << endl;
 		return 1;
 	}
 	if(stoi(argv[1]) < 0 || stoi(argv[1]) > 20) {
-		cerr << "PLEASE ENTER ARG MORE THAN -1 AND LESS THAN 20" << endl;
+		cout << "PLEASE ENTER ARG MORE THAN -1 AND LESS THAN 20" << endl;
 		return 1;
 	}
 	cout << factorial(stoi(argv[1])) << endl;
