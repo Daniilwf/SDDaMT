@@ -14,6 +14,6 @@ jobs:
       - name: Build project
         run: ./scripts/package.sh
       - name: Build Docker image
-        run: docker build -t sddamt:1.0
+        run: docker build -t sddamt:1.0 .
       - name: Run Docker container test
         run: docker run sddamt:1.0
