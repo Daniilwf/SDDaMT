@@ -15,6 +15,9 @@ jobs:
       - name: Build .deb package
         run: ./scripts/package.sh
 
+      - name: Debug - List files before upload
+        run: ls -la
+
       - name: Upload -deb artifact
         uses: actions/upload-artifact@v4
         with:
