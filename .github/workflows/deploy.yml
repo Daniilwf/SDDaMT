@@ -6,13 +6,32 @@ on:
   workflow_dispatch:
 
 jobs:
+  build:
+    runs-on: ubutu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Build .deb package
+        run: ./scripts/package.sh
+
+      - name: Upload -deb artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: deb-package
+          path: SDDaMT.deb
+
   deploy:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Build project
-        run: ./scripts/package.sh
+      - name: Download .deb artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: deb-package
+          path: .
       - name: Build Docker image
         run: docker build -t sddamt:1.0 .
       - name: Run Docker container test
