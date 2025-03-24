@@ -43,3 +43,8 @@ jobs:
       - name: Run Docker container test
         run: docker run sddamt:1.0
 
+      - name: Login to DockerHub
+        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+
+      - name: Push Docker image to DockerHub
+        run: docker push sddamt:1.0
