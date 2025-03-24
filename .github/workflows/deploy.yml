@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build project
-        uses: ./scripts/package.sh
+        run: ./scripts/package.sh
       - name: Build Docker image
-        uses: docker build -t sddamt:1.0
+        run: docker build -t sddamt:1.0
       - name: Run Docker container test
         run: docker run sddamt:1.0
