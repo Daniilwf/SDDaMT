@@ -5,12 +5,13 @@ on:
     branches: [ runner_branch ]
   workflow_dispatch:
 
-deploy:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Build project
-      uses: ./scripts/package.sh
-    - name: Build Docker image
-      uses: docker build -t sddamt:1.0
-    - name: Run Docker container test
-      run: docker run sddamt:1.0
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build project
+        uses: ./scripts/package.sh
+      - name: Build Docker image
+        uses: docker build -t sddamt:1.0
+      - name: Run Docker container test
+        run: docker run sddamt:1.0
