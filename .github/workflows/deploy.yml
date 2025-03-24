@@ -28,7 +28,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Download .deb artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: deb-package
           path: .
@@ -36,3 +36,4 @@ jobs:
         run: docker build -t sddamt:1.0 .
       - name: Run Docker container test
         run: docker run sddamt:1.0
+
