@@ -39,9 +39,9 @@ jobs:
           name: deb-package
           path: .
       - name: Build Docker image
-        run: docker build -t sddamt:1.0 .
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/sddamt:1.0 .
       - name: Run Docker container test
-        run: docker run sddamt:1.0
+        run: docker run ${{ secrets.DOCKERHUB_USERNAME }}/sddamt:1.0
 
       - name: Login to DockerHub
         run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
